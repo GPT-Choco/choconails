@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CHOCONAILS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #fcecd2;
+      text-align: center;
+      color: #4b2e2a;
+    }
+
+    .header {
+      background-color: #fcecd2;
+      padding: 40px 20px 20px;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+      margin: 0 auto 20px;
+    }
+
+    .address {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .rating {
+      margin: 40px 0;
+      font-size: 24px;
+    }
+
+    .stars {
+      font-size: 36px;
+      cursor: pointer;
+      color: #d3c1b3;
+    }
+
+    .stars.active {
+      color: #4b2e2a;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .result-box {
+      background-color: #fcecd2;
+      padding: 30px 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      max-width: 300px;
+      border: 2px solid #4b2e2a;
+    }
+
+    .btn {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #4b2e2a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    .btn:hover {
+      background-color: #3b231f;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #4b2e2a;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="logo.png" alt="CHOCONAILS Logo" class="logo">
+    <div class="address">г. Москва, ул. Генерала Белова 33/19, м. Домодедовская</div>
+  </div>
+
+  <div class="rating">
+    Все понравилось?<br><br>
+    <span class="stars" onclick="rate(1)">★</span>
+    <span class="stars" onclick="rate(2)">★</span>
+    <span class="stars" onclick="rate(3)">★</span>
+    <span class="stars" onclick="rate(4)">★</span>
+    <span class="stars" onclick="rate(5)">★</span>
+  </div>
+
+  <div id="low-rating" class="result-box hidden">
+    Недовольны?<br>Напишите нам:
+    <a class="btn" href="https://wa.me/79775372839" target="_blank">WhatsApp</a>
+  </div>
+
+  <div id="high-rating" class="result-box hidden">
+    Спасибо за отзыв!<br>Оставьте отзыв:
+    <a class="btn" href="https://clck.ru/3GVPgV" target="_blank">Яндекс Карты</a>
+  </div>
+
+  <footer>
+    Студия маникюра CHOCONAILS
+  </footer>
+
+  <script>
+    function rate(stars) {
+      document.querySelectorAll('.stars').forEach((el, index) => {
+        el.classList.toggle('active', index < stars);
+      });
+
+      document.getElementById('low-rating').classList.add('hidden');
+      document.getElementById('high-rating').classList.add('hidden');
+
+      if (stars <= 3) {
+        document.getElementById('low-rating').classList.remove('hidden');
+      } else {
+        document.getElementById('high-rating').classList.remove('hidden');
+      }
+    }
+  </script>
+
+</body>
+</html>
